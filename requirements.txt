@@ -7,3 +7,4 @@ flask_migrate
 bleach
 markdown
 flask_wtf
+gunicorn
