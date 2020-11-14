@@ -1,0 +1,31 @@
+<h2>Customers</h2>
+<input id="search_input" name="title" type="search" class="form-control" placeholder="filter with document title"><button id="document_search_input">search</button>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+          <th>Registration Date</th>
+          <th>Action1</th>
+          <th>Action2</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for content in contents %}
+          <tr>
+            <td>{{content.id}}</td>
+            <td>{{content.first_name}}</td>
+            <td>{{content.last_name}}</td>
+            <td>{{content.username}}</td>
+            <td>{{content.registration_date.split(" ",1)[0]}}</td>
+            <td><a class="database_content_delete" href="#" data-val="{{content.id}}">Delete</a></td>
+            <td><a class="database_content" href="#" data-val="{{content.id}}">Preview</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  

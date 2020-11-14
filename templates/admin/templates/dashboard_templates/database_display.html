@@ -1,0 +1,30 @@
+<h2>Documents</h2>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>TITLE</th>
+          <th>DESCRIPTION</th>
+          <th>CATEGORY</th>
+          <th>DATE CREATED</th>
+          <th>LAST UPDATE</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for content in contents %}
+          <tr>
+            <td><a class="database_content" href="#" data-val="{{content.id}}" >E</a>{{content.id}}</td>
+            <td>{{content.title}}</td>
+            <td>{{content.brief_desc}}</td>
+            <td>{{content.category}}</td>
+            <td>{{content.time_of_production}}</td>
+            <td>{{content.time_of_last_modification}}</td>
+            <td><a class="database_content_delete" href="#" data-val="{{content.id}}">Delete</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  

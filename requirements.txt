@@ -1,0 +1,9 @@
+flask
+flask_login
+flask_sqlalchemy
+flask_mail
+wtforms
+flask_migrate
+bleach
+markdown
+flask_wtf

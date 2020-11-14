@@ -1,0 +1,31 @@
+
+<form enctype="multipart/form-data" method="POST" action="/u0123gg1/ab12345/admin/upload/images/">
+    <input type="file" name="image">
+    <input type="submit" value="send image">
+</form>
+<style>
+  .themed-grid-col {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: rgba(86, 61, 124, .15);
+  border: 1px solid rgba(86, 61, 124, .2);
+}
+
+.themed-container {
+  padding: 15px;
+  margin-bottom: 30px;
+  background-color: rgba(0, 123, 255, .15);
+  border: 1px solid rgba(0, 123, 255, .2);
+}
+
+</style>
+  <div class="row mb-3">
+    {% for content in contents %}
+      <div class="col-4 themed-grid-col"><figure>
+        <img height="150" width="150" src="{{content.location}}" alt="">
+        <figcaption>{{content.name}}</figcaption>
+        <p><a class="image_delete_button" data-imgid={{content.id}} href="#">delete</a></p>
+        </figure>
+      </div>
+    {% endfor %}
+  </div>

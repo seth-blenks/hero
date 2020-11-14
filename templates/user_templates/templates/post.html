@@ -1,0 +1,14 @@
+
+    {% for comment in comments %}
+    <li class="comment">
+      <div class="vcard bio">
+      <img src="/static/assets/images/uploader.jpg" alt="Image placeholder">
+      </div>
+      <div class="comment-body">
+      <h3>{{comment.name}}</h3>
+      <div class="meta">{{comment.time}}</div>
+      <p>{{comment.message}}</p>
+      </div>
+    </li>
+    {% endfor %}
+  

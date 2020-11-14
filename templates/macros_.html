@@ -1,0 +1,65 @@
+{% macro render_nav(current_user) %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Lexyz Academy</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+        <ul class="navbar-nav">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Courses</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown08">
+              <a class="dropdown-item" href="{{url_for('main.analytic_chemistry')}}">Analytical Chemisty</a>
+              <a class="dropdown-item" href="{{url_for('main.physical_chemistry')}}">Physical Chemistry</a>
+              <a class="dropdown-item" href="{{url_for('main.organic_chemistry')}}">Organic Chemistry</a>
+              <a class="dropdown-item" href="{{url_for('main.practical_chemistry')}}">Practical Chemistry</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('auth.registration_page')}}">Register</a>
+          </li>
+          {% if current_user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('auth.logout_page')}}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('auth.login_page')}}">Login</a>
+          </li>
+          {% endif %}
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Privacy Policy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Cookie Policy</a>
+          </li>
+
+          {% if current_user.is_authenticated %}
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Others</a>
+            {% if current_user.confirmed %}
+            <div class="dropdown-menu" aria-labelledby="dropdown08">
+              {% if current_user.has_permission(10) %}
+              <a class="dropdown-item" href="{{url_for('admin.dashboard')}}">Admin Page</a>
+              {% endif %}
+              <a class="dropdown-item" href="{{url_for('auth.profile_page')}}">Profile</a>
+            </div>
+            {% endif %}
+          </li>
+          
+          
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+{% endmacro %}
